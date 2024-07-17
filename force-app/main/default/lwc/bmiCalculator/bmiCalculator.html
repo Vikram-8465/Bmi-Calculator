@@ -1,0 +1,59 @@
+<template>
+    <div>
+        <div class="app slds-grid">
+            <div
+                class="box slds-text-align_center slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12 slds-small-size_6-of-12">
+                <h1>BMI Calculator</h1>
+                <template lwc:if={result}>
+                    <div class="result">
+                        <h2 class="slds-text-title slds-text-color_error slds-var-m-bottom_small">Your BMI is : </h2>
+                        <p
+                            class="slds-text-color_success slds-text-heading_medium slds-text-title_bold slds-var-m-bottom_medium">
+                            {bmiValue}</p>
+                        <h2 class="slds-text-title slds-text-color_error slds-var-m-bottom_small">So You Are :</h2>
+                        <p
+                            class="slds-text-color_success slds-text-heading_medium slds-text-title_bold slds-var-m-bottom_medium">
+                            {result}</p>
+                        <button class="slds-button  slds-button_stretch slds-var-m-bottom_medium slds-var-m-top_medium"
+                            onclick={recalculateHandler}>Re-calculate</button>
+                    </div>
+                </template>
+                <template lwc:else>
+                    <form onsubmit={submitHandler}>
+                        <div class="slds-form-element slds-var-m-bottom_medium">
+                            <label class="slds-form-element__label slds-text-title_bold" for="text-input-height">
+                                Your Height</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" min="0" id="text-input-id-46" placeholder="Enter your height in cm"
+                                    required class="slds-input" name="height" onchange={changeHandler} />
+                            </div>
+                        </div>
+                        <div class="slds-form-element slds-var-m-bottom_medium">
+                            <label class="slds-form-element__label slds-text-title_bold" for="text-input-height">
+                                Your Weight</label>
+                            <div class="slds-form-element__control">
+                                <input type="number" min="0" id="text-input-weight"
+                                    placeholder="Enter your weight in kg" required class="slds-input" name="weight"
+                                    onchange={changeHandler} />
+                            </div>
+                        </div>
+                        <button class="slds-button slds-button_stretch slds-var-m-bottom_medium">Check
+                            BMI</button>
+                    </form>
+                </template>
+                <div class="info slds-text-align_center">
+                    <h2 class="slds-text-color_error">What Your Bmi Means</h2>
+                    <p class="slds-var-m-bottom_medium">If your bmi is : </p>
+                    <h3 class="slds-text-color_error">Under 18.5</h3>
+                    <p class="slds-var-m-bottom_medium">Your underweight</p>
+                    <h3 class="slds-text-color_success">Between 18.5 to 24.0</h3>
+                    <p class="slds-var-m-bottom_medium">Your healthy</p>
+                    <h3 class="slds-text-color_error">Between 24.0 to 29.0</h3>
+                    <p class="slds-var-m-bottom_medium">Your overweight</p>
+                    <h3 class="slds-text-color_error">Above 29.0</h3>
+                    <p class="slds-var-m-bottom_medium">Your obese</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
