@@ -31,7 +31,7 @@
   }
 
   .app{
-    background-image: url(/resource/Bmi_Background);
+    background-image: url(/sfsites/c/resource/Bmi_Background);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
